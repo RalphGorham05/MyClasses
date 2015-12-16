@@ -17,9 +17,37 @@ class MechBrowser:
 		source = BeautifulSoup(html)
 		print source
 
+	def forms(self,num=0):
+		form = self.browser.select_form(nr = num)
 
-url = 'http://www.digg.com'
+
+
+
+
+url = 'http://harmonixmusic.com/games/rock-band/request/'
 br = MechBrowser(url)
 br.goTo()
 
-br.source()
+#br.source()
+
+#br.forms()
+
+
+'''
+
+url = 'http://harmonixmusic.com/games/rock-band/request/'
+br = Browser()
+html = br.open(url)
+br.select_form(nr = 0)
+br.form['title'] = 'hard to see'
+br.form['artist'] = 'five finger death punch'
+response = br.submit()
+
+content = response.read()
+soup = BeautifulSoup(content)
+    
+p = soup.find('p')
+print ''
+print p 
+print ' '
+'''
